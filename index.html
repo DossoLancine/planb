@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Panb la plateforme qui connecte les professionnels</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4FE252;
+            --primary-dark: #3BB33D;
+            --bg-dark: #17224D;
+            ;
+            --bg-card: #17224D;
+            ;
+            --bg-card-hover: #17224D;
+            ;
+            --text-light: #F5F7FA;
+            --text-gray: #ffffff;
+            --text-dark: #eaedf1;
+            --border-color: #2A3542;
+            --timeline-color: var(--primary);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        .timeline-faq {
+
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--border-color);
+            border-radius: 2px;
+            z-index: 1;
+        }
+
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: 0;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 70px;
+            z-index: 2;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--bg-card);
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary);
+            z-index: 3;
+            transition: var(--transition);
+        }
+
+        .timeline-content {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .timeline-content:hover {
+            background-color: var(--bg-card-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-content.active {
+            background-color: var(--bg-card-hover);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(79, 226, 82, 0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .item-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-badge {
+            background-color: rgba(79, 226, 82, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .chevron-icon {
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: transform 0.4s ease;
+        }
+
+        .timeline-content.active .chevron-icon {
+            transform: rotate(180deg);
+        }
+
+        .item-summary {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            transition: var(--transition);
+        }
+
+        .item-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            color: var(--text-dark);
+        }
+
+        .item-details p {
+            margin-top: 20px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .item-details ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .item-details li {
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(79, 226, 82, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(79, 226, 82, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(79, 226, 82, 0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                padding-left: 60px;
+            }
+
+            .timeline-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .item-header h3 {
+                font-size: 1.3rem;
+            }
+
+            .timeline-content {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+
+            .timeline-item {
+                padding-left: 50px;
+                margin-bottom: 25px;
+            }
+
+            .timeline-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+                left: 5px;
+            }
+
+            .timeline-line {
+                left: 25px;
+            }
+
+            .timeline-content {
+                padding: 18px 15px;
+                border-radius: 12px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .item-header h3 {
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .step-badge {
+                align-self: flex-start;
+            }
+
+            .item-summary {
+                font-size: 1rem;
+            }
+
+            .item-details p {
+                font-size: 1rem;
+            }
+
+            .chevron-icon {
+                position: absolute;
+                right: 15px;
+                top: 20px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .timeline-item {
+                padding-left: 45px;
+            }
+
+            .timeline-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+                left: 5px;
+            }
+
+            .timeline-line {
+                left: 22px;
+            }
+
+            .item-header h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-content.active .item-details {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Chargement...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid  d-none d-lg-block">
+        <div class="row align-items-center top-bar">
+            <div class="col-lg-3 col-md-12 text-center text-lg-start">
+                <a href="" class="navbar-brand m-0 p-0">
+                    <img src="img/logot.png" alt="Plan B" style="height: 35px;">
+                </a>
+            </div>
+            <div class="col-lg-9 col-md-12 text-end">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <i class="fa fa-map-marker-alt text-primary me-2"></i>
+                    <p class="m-0">Abidjan ville</p>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <i class="far fa-envelope-open text-primary me-2"></i>
+                    <p class="m-0">
+                        info@planb.com</p>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.facebook.com/share/1H6e31B2Mp/"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href="#"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-0" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4">
+            <a href="" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
+                <img src="img/logot.png" alt="Plan B" style="height: 33px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse" style="background-color: #17224D; ">
+                <div class="navbar-nav me-auto ps-3">
+                    <a href="index.html" class="nav-item nav-link active">Accueil</a>
+                    <a href="#apropos" class="nav-item nav-link">A propos</a>
+                    <a href="#services" class="nav-item nav-link">Services</a>
+                    <a href="#avantages" class="nav-item nav-link">Avantages</a>
+
+                    <a href="#contact" class="nav-item nav-link">Contact</a>
+                </div>
+                <div class="mt-4 mt-lg-0 me-lg-n4 py-3 px-4 d-flex align-items-center"
+                    style="background-color: #4FE252;">
+                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
+                        style="width: 45px; height: 45px;">
+
+                        <i class="fa-solid fa-phone-volume text-primary"></i>
+                    </div>
+                    <div class="ms-3">
+                        <p class="mb-1 text-white">Disponible: 7jrs /7</p>
+                        <h5 class="m-0  text-dark">+225 01 00 58 85 85</h5>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="img/carousel3.jpg" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                    style="background: rgba(0, 0, 0, .4);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-10 col-lg-8">
+                                <h5 class="text-white text-uppercase mb-3 animated slideInDown">Bienvenu sur planb</h5>
+                                <h1 class="display-3 text-white animated slideInDown mb-4">Les professionnels</h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-2">qu'il vaut faut, au même endroit.</p>
+                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
+                                    style="background: #17224D; border: none">Voir plus</a>
+                                <a href="#contact" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight"
+                                    style="background: #4FE252; border: none">Contactez-nous</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="img/Jeune-02.jpg" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                    style="background: rgba(0, 0, 0, .4);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-10 col-lg-8">
+                                <h5 class="text-white text-uppercase mb-3 animated slideInDown">Bienvenu sur planb</h5>
+                                <h1 class="display-3 text-white animated slideInDown mb-4">Les professionnels</h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-2">qu'il vaut faut, au même endroit.</p>
+                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
+                                    style="background: #17224D; border: none">Voir plus</a>
+                                <a id="apropos" href="tel:+2250787487366" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight"
+                                    style="background: #4FE252; border: none">Contactez-nous</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- About Start -->
+    <div class="container-xxl py-5"id="#contact">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+
+                    <h1 class="mb-4">POURQUOI PLAN B <span style="color: #4FE252;">EXISTE?</span> </h1>
+                    <p class="mb-4 text-dark">Dans le quotidien, trouver un professionnel fiable reste souvent
+                        difficile.
+                        PLAN B répond à ce besoin en structurant les services locaux et en
+                        facilitant la rencontre entre ceux qui cherchent un service et ceux qui
+                        savent le rendre.
+
+                    </p>
+                    <p class="fw-medium text-primary"><i class="fa fa-check text-success me-3"></i>Rapidité</p>
+                    <p class="fw-medium text-primary"><i class="fa fa-check text-success me-3"></i>Efficacité</p>
+                    <p class="fw-medium text-primary"><i class="fa fa-check text-success me-3"></i>Simplicité</p>
+                    <div class=" d-flex align-items-center p-4 mt-5">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
+                            style="width: 60px; height: 60px;">
+
+                            <i class="fa-brands fa-3x fa-whatsapp" style="color: #4efd63;"></i>
+                        </div>
+                        <a href="https://wa.me/2250787487366?text=Bonjour%20PLAN%20B%2C%20je%20souhaite%20avoir%20plus%20d'informations%20sur%20vos%20services."
+                            target="_blank" class="btn-whatsapp">
+                            Contacter via WhatsApp
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 pt-4" style="min-height: 500px;">
+                    <div class="position-relative h-100 wow fadeInUp" data-wow-delay="0.5s">
+                        <img class="position-absolute img-fluid w-100 h-100" src="img/pro1.jpeg"
+                            style="object-fit: cover; padding: 0 0 50px 100px;" alt="">
+                        <img class="position-absolute start-0 bottom-0 img-fluid bg-white pt-2 pe-2 w-50 h-50"
+                            src="img/ouvrier-02.jpg" style="object-fit: cover; border: 2 solid #4FE252;" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Service Start -->
+    <div class="container-fluid py-3 px-4 px-lg-0">
+        <div class="row g-0">
+            <div class="col-lg-3 d-none d-lg-flex" style="background-color: var(--dark);">
+                <div class="d-flex align-items-center justify-content-center  w-100 h-100">
+                    <h1 class="display-3 text-white m-0" style="transform: rotate(-90deg); "><span
+                            style="color: #4efd63;">Plan b</span> pour vos besoins</h1>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-9">
+                <div class="ms-lg-5 ps-lg-5">
+                    <div class="text-center text-lg-start wow fadeInUp" data-wow-delay="0.1s">
+
+                        <h1 class="mb-5">Notre <span style="color: #4FE252;">mission</span> </h1>
+                    </div>
+                    <div class="owl-carousel service-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
+
+                        <div class="bg-light p-4">
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4"
+                                style="width: 75px; height: 75px;">
+                                <i class="fa-solid fa-network-wired text-primary fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Connecter clients
+                                et professionnels </h4>
+                            <p>Créer un lien direct,
+                                simple et efficace entre
+                                l’offre et la demande. </p>
+
+                            <a href="" class="btn bg-white text-primary w-100 mt-2">Voir plus<i
+                                    class="fa fa-arrow-right ms-2" style="color: var(--primary);"></i></a>
+                        </div>
+                        <div class="bg-light p-4">
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4"
+                                style="width: 75px; height: 75px;">
+
+                                <i class="fa-solid fa-money-bill-trend-up text-primary fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Moderniser les
+                                prestations locales </h4>
+                            <p>Apporter des solutions
+                                digitales pour
+                                professionnaliser et
+                                structurer les services. </p>
+
+                            <a href="" class="btn bg-white text-primary w-100 mt-2">Voir plus<i
+                                    class="fa fa-arrow-right ms-2" style="color: var(--primary);"></i></a>
+                        </div>
+                        <div class="bg-light p-4">
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4"
+                                style="width: 75px; height: 75px;">
+                                <i class="fa-regular fa-gem text-primary fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Faciliter l’accès
+                                aux services </h4>
+                            <p>Permettre aux clients de
+                                trouver rapidement des
+                                services fiables et adaptés à
+                                leurs besoins </p>
+
+                            <a href="" class="btn bg-white text-primary w-100 mt-2">Voir plus<i
+                                    class="fa fa-arrow-right ms-2" style="color: var(--primary);"></i></a>
+                        </div>
+                        <div class="bg-light card-x p-4">
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4"
+                                style="width: 75px; height: 75px;">
+
+                                <i class="fa-solid fa-hand-holding-dollar text-primary fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Valoriser les
+                                petits métiers </h4>
+                            <p>Mettre en lumière les
+                                compétences locales et
+                                donner de la visibilité aux
+                                professionnels. </p>
+
+                            <a href="" class="btn bg-white text-primary w-100 mt-2">Voir plus<i
+                                    class="fa fa-arrow-right ms-2" style="color: var(--primary);"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+    <div id="detailModal" class="modal-custom">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h4 id="modalTitle"></h4>
+            <ul id="modalList" class="metiers-list"></ul>
+        </div>
+    </div>
+
+
+    <!-- Team Start -->
+    <div class="container-xxl py-4" id="services">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h3 class=" text-uppercase" style="color: #17224D;">LES <span style="color: #4FE252;">DOMAINES</span> &
+                    <span style="color: #4FE252;">METIERS</span>
+                </h3>
+                <h5 class="mb-5 text-dark">DISPONIBLES SUR PLAN B </h5>
+            </div>
+            <div class="row g-4">
+
+                <!-- BTP -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/pro1.jpeg" alt="BTP">
+                        </div>
+                        <div class="team-text">
+                            <div class="bg-light">
+                                <h5 class="fw-bold mb-0 text-center">
+                                    Bâtiment & Travaux Publics (BTP)
+                                </h5>
+                            </div>
+                            <div class=" text-center py-3 detail-zone">
+                                <button class="btn-detail" onclick="openModal('btp')">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maison -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/pro2.15.jpeg" alt="Maison">
+                        </div>
+                        <div class="team-text">
+                            <div class="bg-light">
+                                <h5 class="fw-bold mb-0 text-center">
+                                    Maison, Réparation & Maintenance
+                                </h5>
+                            </div>
+                            <div class=" text-center py-3 detail-zone">
+                                <button class="btn-detail" onclick="openModal('maison')">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Pro -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/Client1.jpeg" alt="Services">
+                        </div>
+                        <div class="team-text">
+                            <div class="bg-light">
+                                <h5 class="fw-bold mb-0 text-center">
+                                    Services Professionnels & Administratifs
+                                </h5>
+                            </div>
+                            <div class=" text-center py-3 detail-zone">
+                                <button class="btn-detail" onclick="openModal('services')">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automobile -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/1.jpg" alt="Auto">
+                        </div>
+                        <div class="team-text">
+                            <div class="bg-light">
+                                <h5 class="fw-bold mb-0 text-center">
+                                    Automobile & Transport
+                                </h5>
+                            </div>
+                            <div class=" text-center py-3 detail-zone">
+                                <button class="btn-detail" onclick="openModal('auto')">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beauté -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/7.jpg" alt="Beauté">
+                        </div>
+                        <div class="team-text">
+                            <div class="bg-light">
+                                <h5 class="fw-bold mb-0 text-center">
+                                    Beauté, Mode & Bien-être
+                                </h5>
+                            </div>
+                            <div class=" text-center py-3 detail-zone">
+                                <button class="btn-detail" onclick="openModal('beaute')">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restauration -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/8.jpg" alt="Restauration">
+                        </div>
+                        <div class="team-text">
+                            <div class="bg-light">
+                                <h5 class="fw-bold mb-0 text-center">
+                                    Restauration & Alimentaire
+                                </h5>
+                            </div>
+                            <div class=" text-center py-3 detail-zone">
+                                <button class="btn-detail" onclick="openModal('resto')">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Événementiel -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/3.jpg" alt="Event">
+                        </div>
+                        <div class="team-text">
+                            <div class="bg-light">
+                                <h5 class="fw-bold mb-0 text-center">
+                                    Événementiel & Animation
+                                </h5>
+                            </div>
+                            <div class=" text-center py-3 detail-zone">
+                                <button class="btn-detail" onclick="openModal('event')">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artisanat -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/4.jpg" alt="Artisanat">
+                        </div>
+                        <div class="team-text">
+                            <div class="bg-light">
+                                <h5 class="fw-bold mb-0 text-center">
+                                    Artisanat & Fabrication locale
+                                </h5>
+                            </div>
+                            <div class=" text-center py-3 detail-zone">
+                                <button class="btn-detail" onclick="openModal('artisanat')">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- MODAL UNIQUE -->
+            <div id="detailModal" class="modal-custom">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeModal()">×</span>
+                    <h4 id="modalTitle"></h4>
+                    <ul id="modalList" class="metiers-list"></ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- Team End -->
+
+    </div>
+
+    <!-- FAQ -->
+    <div style="padding-left: 4%;">
+        <div class="timeline-faq">
+            <div class="timeline-line" id="timelineLine"></div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="timeline-content" data-step="1">
+                    <div class="item-header">
+                        <h3><span class="step-badge">Étape 1</span> Expression de votre besoin</h3>
+                        <i class="fas fa-chevron-down chevron-icon"></i>
+                    </div>
+                    <p class="item-summary">Le client contacte Plan B et explique clairement son problème.</p>
+                    <div class="item-details">
+                        <p>Vous nous contactez via téléphone, message ou plateforme en ligne pour nous décrire votre
+                            situation : dépannage, réparation, installation ou tout autre service nécessaire.</p>
+                        <ul>
+                            <li>Contact simple et direct</li>
+                            <li>Explication détaillée du problème</li>
+                            <li>Identification du type de service requis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <div class="timeline-content" data-step="2">
+                    <div class="item-header">
+                        <h3><span class="step-badge">Étape 2</span> Analyse et prise en charge</h3>
+                        <i class="fas fa-chevron-down chevron-icon"></i>
+                    </div>
+                    <p class="item-summary">Plan B analyse la demande et valide les informations essentielles.</p>
+                    <div class="item-details">
+                        <p>Notre équipe étudie votre demande pour identifier précisément le type de service nécessaire
+                            et
+                            valider toutes les informations essentielles pour une intervention réussie.</p>
+                        <ul>
+                            <li>Analyse détaillée de la demande</li>
+                            <li>Vérification de la localisation</li>
+                            <li>Évaluation du niveau d'urgence</li>
+                            <li>Clarification des détails techniques</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <div class="timeline-content" data-step="3">
+                    <div class="item-header">
+                        <h3><span class="step-badge">Étape 3</span> Sélection des pro qualifiés</h3>
+                        <i class="fas fa-chevron-down chevron-icon"></i>
+                    </div>
+                    <p class="item-summary">Plan B sélectionne des professionnels vérifiés et proches de chez vous.</p>
+                    <div class="item-details">
+                        <p>Nous mobilisons notre réseau de professionnels qualifiés et vérifiés pour choisir l'expert le
+                            plus adapté à votre besoin et le plus proche de votre localisation.</p>
+                        <ul>
+                            <li>Sélection selon compétences et disponibilité</li>
+                            <li>Vérification des certifications et expériences</li>
+                            <li>Géolocalisation pour proximité optimale</li>
+                            <li>Validation des références et avis clients</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="timeline-content" data-step="4">
+                    <div class="item-header">
+                        <h3><span class="step-badge">Étape 4</span> Intervention sur le terrain</h3>
+                        <i class="fas fa-chevron-down chevron-icon"></i>
+                    </div>
+                    <p class="item-summary">Le professionnel désigné se rend chez vous et effectue l'intervention.</p>
+                    <div class="item-details">
+                        <p>L'expert sélectionné intervient directement à votre domicile ou sur votre lieu de travail
+                            pour
+                            résoudre votre problème selon les spécifications convenues.</p>
+                        <ul>
+                            <li>Intervention rapide et efficace</li>
+                            <li>Matériel et outils adaptés</li>
+                            <li>Respect des délais et du devis</li>
+                            <li>Transparence sur les actions réalisées</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <div class="timeline-content" data-step="5">
+                    <div class="item-header">
+                        <h3><span class="step-badge">Étape 5</span> Règlement simplifié</h3>
+                        <i class="fas fa-chevron-down chevron-icon"></i>
+                    </div>
+                    <p class="item-summary">Le paiement se fait selon le mode défini par Plan B, de manière sécurisée.
+                    </p>
+                    <div class="item-details">
+                        <p>Le règlement s'effectue de manière simplifiée et sécurisée selon les modalités définies par
+                            Plan
+                            B, avec une répartition automatique avec le professionnel.</p>
+                        <ul>
+                            <li>Paiement sécurisé en ligne</li>
+                            <li>Facturation détaillée et transparente</li>
+                            <li>Répartition automatique avec le professionnel</li>
+                            <li>Reçu et garantie inclus</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="timeline-content" data-step="6">
+                    <div class="item-header">
+                        <h3><span class="step-badge">Étape 6</span> Problème résolu</h3>
+                        <i class="fas fa-chevron-down chevron-icon"></i>
+                    </div>
+                    <p class="item-summary">Vous bénéficiez d'un service fiable, rapide et encadré par Plan B.</p>
+                    <div class="item-details">
+                        <p>Votre problème est résolu ! Vous bénéficiez désormais d'un service fiable et rapide, avec
+                            l'assurance d'un suivi et d'une garantie encadrée par Plan B.</p>
+                        <ul>
+                            <li>Service vérifié et validé</li>
+                            <li>Garantie sur l'intervention</li>
+                            <li>Possibilité de suivi post-intervention</li>
+                            <li>Satisfaction client garantie</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Fact End -->
+
+
+
+    <section class="avantages-section" id="avantages">
+        <div class="section-header fade-in">
+            <h2 class="text-dark">Avantages de la plateforme</h2>
+            <p>Une solution innovante conçue pour connecter professionnels et clients.</p>
+        </div>
+
+        <div class="avantages-container">
+            <!-- Carte Clients -->
+            <article class="avantage-card clients fade-in">
+                <div class="card-bg" style="background-image: url('img/Client1.jpeg');">
+                </div>
+                <div class="card-overlay"></div>
+
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-users text-dark"></i>
+                        </div>
+                        <h3 class="text-dark">Pour les Clients</h3>
+                    </div>
+
+                    <ul class="avantages-list">
+                        <li class="avantage-item">
+                            <div class="item-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="item-content">
+                                <h4>Recherche simplifiée par domaine</h4>
+                                <p>Accès rapide aux professionnels par
+                                    domaine. </p>
+                            </div>
+                        </li>
+                        <li class="avantage-item">
+                            <div class="item-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="item-content">
+                                <h4>Gain de temps considérable</h4>
+                                <p>Plus besoin de chercher par
+                                    recommandation informelle.</p>
+                            </div>
+                        </li>
+                        <li class="avantage-item">
+                            <div class="item-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="item-content">
+                                <h4>Choix éclairé</h4>
+                                <p>Profils clairs pour mieux décider. </p>
+                            </div>
+                        </li>
+                        <li class="avantage-item">
+                            <div class="item-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="item-content">
+                                <h4>Profils clairs et fiables</h4>
+                                <p>Échange sans intermédiaire.</p>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </article>
+
+            <!-- Carte Professionnels -->
+            <article class="avantage-card professionals fade-in">
+                <div class="card-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+                </div>
+                <div class="card-overlay"></div>
+
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-user-tie text-dark"></i>
+                        </div>
+                        <h3 class="text-dark">Pour les Professionnels</h3>
+                    </div>
+
+                    <ul class="avantages-list">
+                        <li class="avantage-item">
+                            <div class="item-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="item-content">
+                                <h4>Visibilité accrue</h4>
+                                <p>Présentation de l’activité auprès
+                                    d’une clientèle active. </p>
+                            </div>
+                        </li>
+                        <li class="avantage-item">
+                            <div class="item-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="item-content">
+                                <h4>Accès à des demandes réelles</h4>
+                                <p>Mise en relation avec des clients ayant
+                                    un besoin concret. </p>
+                            </div>
+                        </li>
+                        <li class="avantage-item">
+                            <div class="item-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="item-content">
+                                <h4>Image professionnelle renforcée</h4>
+                                <p>Profil structuré et lisible.</p>
+                            </div>
+                        </li>
+                        <li class="avantage-item">
+                            <div class="item-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="item-content">
+                                <h4>Développement de l'activité</h4>
+                                <p>Plus d’opportunités de prestations. </p>
+                            </div>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </article>
+        </div>
+    </section>
+
+
+
+    <!-- Booking Start -->
+    <div class="container-fluid px-0">
+        <div class="video wow fadeInUp" data-wow-delay="0.1s">
+            <button type="button" class="btn-play" data-bs-toggle="modal"
+                data-src="#" data-bs-target="#videoModal">
+                <span></span>
+            </button>
+
+            <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content rounded-0">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Vidéo bientôt disponible</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="ratio ratio-16x9">
+                                <iframe class="embed-responsive-item" src="" id="video" allowfullscreen
+                                    allowscriptaccess="always" allow="autoplay"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h1 id="contact" class="text-white mb-4">Avez-vous besoin d'un service?</h1>
+            <h3 class="text-white mb-0">Disponisble 7 jours /7</h3>
+        </div>
+
+
+
+
+
+
+
+        <!-- conact -->
+        <div class="container position-relative wow fadeInUp " data-wow-delay="0.1s" style="margin-top: -6rem; ">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-light text-center p-5" style="border: solid var(--bg-card); border-radius: 2rem;">
+                        <h1 class="mb-4">Demande de service</h1>
+
+                        <form id="whatsappForm">
+                            <div class="row g-3">
+
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" id="nom" class="form-control border-0" placeholder="Votre nom"
+                                        style="height: 55px;" required>
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" id="email" class="form-control border-0"
+                                        placeholder="Votre email" style="height: 55px;">
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <select id="service" class="form-select border-0" style="height: 55px;" required>
+                                        <option value="">Avez-vous besoins</option>
+                                        <option>Bâtiment & Travaux Publics (BTP)</option>                                         
+                                        <option>Maison, Réparation & Maintenance</option>
+                                        <option>Services Professionnels & Administratifs</option>
+                                        <option>Auto/ Automobile & Transport</option>
+                                        <option>Événementiel & Animation</option>
+                                        <option>Beauté, Mode & Bien-être</option>
+                                        <option>Restauration & Alimentaire</option>
+                                        <option>Artisanat & Fabrication locale</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <input type="date" id="date" class="form-control border-0" style="height: 55px;"
+                                        required>
+                                </div>
+
+                                <div class="col-12">
+                                    <textarea id="message" class="form-control border-0"
+                                        placeholder="Décrivez votre besoin" rows="4"></textarea>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class=" btn w-100 py-3 text-dark"
+                                        style="background-color: #4FE252; border-radius: 3rem;">
+                                        Envoyer sur WhatsApp
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Booking End -->
+
+
+
+
+
+    <!-- Testimonial Start -->
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="mb-5">Ce que disent nos utilisateurs</h1>
+            </div>
+
+            <div class="owl-carousel testimonial-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
+
+                <!-- Témoignage 1 -->
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-text bg-light text-center p-4 mb-4">
+                        <p class="mb-0">
+                            Grâce à Plan B, j’ai trouvé un plombier sérieux en moins d’une heure.
+                            Le service est rapide, clair et très professionnel. Je recommande vivement.
+                        </p>
+                    </div>
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-1.jpg"
+                        style="width: 80px; height: 80px;">
+                    <div class="mb-2">
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                    </div>
+                    <h5 class="mb-1">Aïcha K.</h5>
+                    <p class="m-0">Cliente – Abidjan</p>
+                </div>
+
+                <!-- Témoignage 2 -->
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-text bg-light text-center p-4 mb-4">
+                        <p class="mb-0">
+                            J’avais un problème électrique urgent.
+                            Plan B a pris en charge ma demande et un professionnel est intervenu le jour même.
+                            Service très efficace.
+                        </p>
+                    </div>
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-2.jpg"
+                        style="width: 80px; height: 80px;">
+                    <div class="mb-2">
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                    </div>
+                    <h5 class="mb-1">Yao M.</h5>
+                    <p class="m-0">Client – Cocody</p>
+                </div>
+
+                <!-- Témoignage 3 -->
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-text bg-light text-center p-4 mb-4">
+                        <p class="mb-0">
+                            Plan B me permet de trouver régulièrement des clients sérieux.
+                            La plateforme est bien organisée et facilite vraiment la mise en relation.
+                        </p>
+                    </div>
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-3.jpg"
+                        style="width: 80px; height: 80px;">
+                    <div class="mb-2">
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                    </div>
+                    <h5 class="mb-1">Kouamé S.</h5>
+                    <p class="m-0">Électricien bâtiment</p>
+                </div>
+
+                <!-- Témoignage 4 -->
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-text bg-light text-center p-4 mb-4">
+                        <p class="mb-0">
+                            Depuis que je suis inscrit sur Plan B, j’ai plus de visibilité
+                            et des missions claires. Le système est simple, fiable et bien pensé.
+                        </p>
+                    </div>
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-4.jpg"
+                        style="width: 80px; height: 80px;">
+                    <div class="mb-2">
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                        <small class="fa fa-star text-secondary"></small>
+                    </div>
+                    <h5 class="mb-1">Fatou D.</h5>
+                    <p class="m-0">Coiffeuse professionnelle</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- Testimonial End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 sm-pt-3 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container ">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="position-relative mx-auto" style="max-width: 500px;">
+                        <img src="img/logot2.png" alt="">
+                    </div>
+                    <p>Faciliter l’accès aux services, valoriser les
+                        compétences locales et structurer les petits
+                        métiers.</p>
+
+                    <p>"PLAN B Quand vous avez un besoin, nous
+                        vous mettons en relation avec la bonne
+                        personne."</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Abidjan, Côte d'Ivoire</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+225 07 87 48 73 66</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@planb.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/share/1H6e31B2Mp/"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" style="margin-bottom: -5px;">
+                    <h4 class="text-light mb-4">Toujours disponible</h4>
+                    <h6 class="text-light">7 jours / 7</h6>
+                    <p class="mb-4">24h / 24</p>
+                    <img src="img/qrcode.jpg" alt="qr code">
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Liens Rapides</h4>
+                    <a class="btn btn-link" href="index.html">Accueil</a>
+                    <a class="btn btn-link" href="#services">Services</a>
+                    <a class="btn btn-link" href="#apropos">À propos</a>
+                    <a class="btn btn-link" href="#avantages">Avantages</a>
+                    <a class="btn btn-link" href="#contact">Contact</a>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="container text-lg-center">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0 text-lg-center">
+                        &copy; Plan B tout droit Reservé, design by <a class="border-bottom" href="#">oprimax Agency</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-lg-square rounded-0 back-to-top" style="background-color: var(--bg-card)"><i
+            class="bi bi-arrow-up text-white"></i></a>
+
+    <div id="detailModal" class="modal-custom">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h4>🏗️ Métiers du BTP</h4>
+
+            <ul class="metiers-list">
+                <li>Maçon</li>
+                <li>Plombier</li>
+                <li>Électricien bâtiment</li>
+                <li>Carreleur</li>
+                <li>Peintre bâtiment</li>
+                <li>Soudeur</li>
+                <li>Menuisier bois / aluminium</li>
+                <li>Couvreur</li>
+                <li>Technicien climatisation</li>
+                <li>Architecte / Dessinateur bâtiment</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const domaines = {
+            btp: { title: "🏗️ Métiers du BTP", items: ["Maçon", "Plombier", "Électricien bâtiment", "Carreleur", "Peintre bâtiment", "Soudeur", "Menuisier bois / aluminium", "Couvreur", "Technicien climatisation", "Architecte / Dessinateur bâtiment"] },
+            maison: { title: "🏠 Maison, Réparation & Maintenance", items: ["Ménagère / Femme de Ménage", "Serrurier", "Technicien électroménager", "Jardinier", "Gardien de maison", "Agent d’entretien"] },
+            services: { title: "🗂️ Services Professionnels & Administratifs", items: ["Comptable", "Secrétaire indépendant", "Graphiste", "Community Manager", "Développeur Web / Mobile", "Photographe", "Vidéaste", "Livreur urbain"] },
+            auto: { title: "🚗 Automobile & Transport", items: ["Mécanicien auto / moto", "Électricien auto", "Laveur auto à domicile", "Chauffeur privé", "Taxi / VTC", "Transporteur de marchandises"] },
+            beaute: { title: "💄 Beauté, Mode & Bien-être", items: ["Coiffeuse / Coiffeur", "Esthéticienne", "Maquilleuse professionnelle", "Styliste / Couturier", "Barbier", "Masseuse"] },
+            resto: { title: "🍽️ Restauration & Alimentaire", items: ["Cuisinier à domicile", "Pâtissier", "Traiteur", "Serveur événementiel", "Décorateur"] },
+            event: { title: "🎉 Événementiel & Animation", items: ["Décorateur événementiel", "Location chaises / tables / chapiteaux", "Sonorisation & Lumière", "DJ", "Animateur", "Maître de cérémonie"] },
+            artisanat: { title: "🛠️ Artisanat & Fabrication locale", items: ["Tailleurs", "Tapissier", "Forgeron", "Artisans décorateurs", "Fabricants d’objets artisanaux"] }
+        };
+
+        function openModal(key) {
+            const modal = document.getElementById("detailModal");
+            const title = document.getElementById("modalTitle");
+            const list = document.getElementById("modalList");
+            if (!domaines[key]) return;
+            title.textContent = domaines[key].title;
+            list.innerHTML = "";
+            domaines[key].items.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+            modal.style.display = "block";
+        }
+
+        function closeModal() { document.getElementById("detailModal").style.display = "none"; }
+
+        window.onclick = function (e) {
+            if (e.target === document.getElementById("detailModal")) closeModal();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const timelineItems = document.querySelectorAll('.timeline-content');
+            const timelineLine = document.getElementById('timelineLine');
+
+            // Fonction pour mettre à jour la ligne de la timeline
+            function updateTimelineLine() {
+                const activeItem = document.querySelector('.timeline-content.active');
+
+                if (activeItem) {
+                    const step = parseInt(activeItem.getAttribute('data-step'));
+                    const percentage = ((step - 1) / 5) * 100;
+
+                    // Créer un effet de progression sur la ligne
+                    const afterElement = document.querySelector('.timeline-line::after');
+                    if (afterElement) {
+                        afterElement.style.height = `${percentage}%`;
+                    }
+                }
+            }
+
+            // Initialiser la timeline avec la première étape active
+            timelineItems[0].classList.add('active');
+            timelineItems[0].querySelector('.item-details').style.maxHeight =
+                timelineItems[0].querySelector('.item-details').scrollHeight + 'px';
+
+            // Gérer les clics sur chaque élément de la timeline
+            timelineItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const isActive = this.classList.contains('active');
+                    const details = this.querySelector('.item-details');
+
+                    // Fermer tous les autres éléments
+                    timelineItems.forEach(otherItem => {
+                        if (otherItem !== this) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.item-details').style.maxHeight = null;
+                        }
+                    });
+
+                    // Ouvrir/fermer l'élément cliqué
+                    if (!isActive) {
+                        this.classList.add('active');
+                        details.style.maxHeight = details.scrollHeight + 'px';
+                    } else {
+                        this.classList.remove('active');
+                        details.style.maxHeight = null;
+                    }
+
+                    updateTimelineLine();
+                });
+            });
+
+            // Mettre à jour la ligne de la timeline
+            updateTimelineLine();
+
+            // Animation au chargement de la page
+            setTimeout(() => {
+                document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }, 300);
+
+            // Initialiser les opacités pour l'animation
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+        });
+    </script>
+
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/scritp.js"></script>
+
+
+</body>
+
+</html>
